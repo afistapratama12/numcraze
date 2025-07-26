@@ -44,12 +44,12 @@ const buttonClickVariants = {
   normal: { scale: 1, boxShadow: "0 0 0 rgba(0, 0, 0, 0)" }
 };
 
-const typingVariants = {
-  typing: {
-    opacity: [1, 0.3, 1],
-    transition: { duration: 0.5, repeat: Infinity }
-  }
-};
+// const typingVariants = {
+//   typing: {
+//     opacity: [1, 0.3, 1],
+//     transition: { duration: 0.5, repeat: Infinity }
+//   }
+// };
 
 const pulseRedVariants = {
   pulse: {
@@ -74,7 +74,7 @@ export default function GameBoard({ targetNumber, timeLeft, onGameComplete, leve
   const [displayExpression, setDisplayExpression] = useState<string>('');
   const [realTimeResult, setRealTimeResult] = useState<number | null>(null);
   const [isCalculating, setIsCalculating] = useState<boolean>(false);
-  const [lastSubmitWrong, setLastSubmitWrong] = useState<boolean>(false);
+  const [lastSubmitWrong, setLastSubmitWrong] = useState<boolean>(false); // @typescript-eslint/no-unused-vars
   const [buttonClickEffect, setButtonClickEffect] = useState<string>('');
   const [isShaking, setIsShaking] = useState<boolean>(false);
   const [isSuccess, setIsSuccess] = useState<boolean>(false);
@@ -83,7 +83,7 @@ export default function GameBoard({ targetNumber, timeLeft, onGameComplete, leve
 
   // Audio feedback functions
   const playSound = (type: 'click' | 'success' | 'error' | 'warning') => {
-    if (typeof window !== 'undefined') {
+    if (typeof window !== 'undefined') { // @typescript-eslint/no-explicit-any
       const audioContext = new (window.AudioContext || (window as any).webkitAudioContext)();
       const oscillator = audioContext.createOscillator();
       const gainNode = audioContext.createGain();
