@@ -7,6 +7,7 @@ import Leaderboard from './Leaderboard';
 import LevelComplete from './LevelComplete';
 import { getGameLevel, getGameLevelByDifficulty, generateTargetNumber, PlayerData, savePlayerData } from '../../utils/gameLogic';
 import "@/components/ui/8bit/styles/retro.css";
+import { MAX_LEVEL } from '@/lib/constants';
 
 interface GameContainerProps {
   playerData: PlayerData;
@@ -89,6 +90,8 @@ export default function GameContainer({ playerData, onGameEnd }: GameContainerPr
       setTimerInterval(null);
     }
 
+    console.log()
+
     // Only start timer if we're in playing state and have valid time
     if (gameState === 'playing' && timeLeft > 0) {
       const interval = setInterval(() => {
@@ -121,7 +124,7 @@ export default function GameContainer({ playerData, onGameEnd }: GameContainerPr
     }
 
     if (success) {
-      if (level === 999) {
+      if (level === MAX_LEVEL) {
         // Player won the game!
         setGameState('leaderboard');
       } else {

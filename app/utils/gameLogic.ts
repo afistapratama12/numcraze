@@ -6,75 +6,75 @@ export interface GameLevel {
 }
 
 export const getGameLevel = (level: number): GameLevel => {
-  if (level <= 10) {
+  if (level <= 5) {
     return {
       level,
-      timeLimit: 120,
+      timeLimit: 90,
       minNumber: 20,
       maxNumber: 49
     };
-  } else if (level <= 15) {
+  } else if (level <= 10) {
     return {
       level,
-      timeLimit: 110,
+      timeLimit: 85,
       minNumber: 50,
       maxNumber: 99
     }
   }
-  else if (level <= 20) {
+  else if (level <= 15) {
     return {
       level,
-      timeLimit: 100,
+      timeLimit: 80,
       minNumber: 100,
       maxNumber: 249
     };
   } 
-  else if (level <= 25) {
+  else if (level <= 20) {
     return {
       level,
-      timeLimit: 90,
+      timeLimit: 80,
       minNumber: 250,
       maxNumber: 499
     };
-  }else if (level <= 30) {
+  }else if (level <= 25) {
     return {
       level,
-      timeLimit: 85,
+      timeLimit: 75,
       minNumber: 500,
-      maxNumber: 1000
+      maxNumber: 999
+    };
+  } else if (level <= 30) {
+    return {
+      level,
+      timeLimit: 70,
+      minNumber: 1000,
+      maxNumber: 2499
+    };
+  } else if (level <= 40) {
+    return {
+      level,
+      timeLimit: 65,
+      minNumber: 2500,
+      maxNumber: 4999
     };
   } else if (level <= 50) {
     return {
       level,
-      timeLimit: 80,
-      minNumber: 1000,
-      maxNumber: 2500
-    };
-  } else if (level <= 100) {
-    return {
-      level,
-      timeLimit: 75,
-      minNumber: 2500,
-      maxNumber: 5000
-    };
-  } else if (level <= 200) {
-    return {
-      level,
-      timeLimit: 70,
+      timeLimit: 60,
       minNumber: 5000,
-      maxNumber: 10000
+      maxNumber: 9999
     };
-  } else if (level <= 500) {
+  } else if (level <= 75) {
     return {
       level,
-      timeLimit: 65,
+      timeLimit: 55,
       minNumber: 10000,
-      maxNumber: 50000
+      maxNumber: 49999
     };
   } else {
     return {
       level,
-      timeLimit: 60,
+      timeLimit: 50,
       minNumber: 50000,
       maxNumber: 100000
     };
@@ -82,7 +82,7 @@ export const getGameLevel = (level: number): GameLevel => {
 };
 
 export const getGameLevelHard = (level: number): GameLevel => {
-  if (level <= 10) {
+  if (level <= 5) {
     return {
       level,
       timeLimit: 60,
@@ -90,54 +90,61 @@ export const getGameLevelHard = (level: number): GameLevel => {
       maxNumber: 99
     };
   }
-  else if (level <= 20) {
+  else if (level <= 10) {
     return {
       level,
       timeLimit: 55,
       minNumber: 100,
       maxNumber: 499
     };
-  } else if (level <= 30) {
+  } else if (level <= 15) {
     return {
       level,
       timeLimit: 50,
       minNumber: 500,
-      maxNumber: 1000
+      maxNumber: 999
     };
-  } else if (level <= 50) {
+  } else if (level <= 20) {
     return {
       level,
       timeLimit: 50,
       minNumber: 1000,
-      maxNumber: 2500
+      maxNumber: 2499
     };
-  } else if (level <= 100) {
+  } else if (level <= 30) {
     return {
       level,
       timeLimit: 45,
       minNumber: 2500,
-      maxNumber: 5000
+      maxNumber: 4999
     };
-  } else if (level <= 200) {
+  } else if (level <= 40) {
     return {
       level,
       timeLimit: 45,
       minNumber: 5000,
-      maxNumber: 10000
+      maxNumber: 9999
     };
-  } else if (level <= 500) {
+  } else if (level <= 50) {
     return {
       level,
       timeLimit: 40,
       minNumber: 10000,
       maxNumber: 50000
     };
-  } else {
+  } else if (level <= 75) {
     return {
       level,
       timeLimit: 40,
       minNumber: 50000,
       maxNumber: 100000
+    };
+  } else {
+    return {
+      level,
+      timeLimit: 40,
+      minNumber: 100001,
+      maxNumber: 999999
     };
   }
 };

@@ -6,6 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/8bit/c
 import { Button } from "@/components/ui/8bit/button";
 import { getGameLevel } from "../../utils/gameLogic";
 import "@/components/ui/8bit/styles/retro.css";
+import { cn } from '@/lib/utils';
 
 // Animation variants for framer-motion
 const shakeVariants = {
@@ -204,7 +205,7 @@ export default function GameBoard({ targetNumber, timeLeft, onGameComplete, leve
 
   // Timer warning system
   useEffect(() => {
-    if (timeLeft === 30 || timeLeft === 15 || timeLeft === 10 || timeLeft === 5) {
+    if (timeLeft === 15 || timeLeft === 10 || timeLeft === 5) {
       playSound('warning');
     }
   }, [timeLeft]);
@@ -459,11 +460,13 @@ export default function GameBoard({ targetNumber, timeLeft, onGameComplete, leve
           <CardHeader>
             <CardTitle className="text-center text-2xl">{targetNumber}</CardTitle>
           </CardHeader>
-          <CardContent className="p-4 w-full">
+          <CardContent className="px-4 py-2 w-full h-[16vh]">
             <motion.div 
-              className={`retro text-center text-base min-h-[2rem] break-all transition-all duration-300 ${
-                displayExpression ? 'opacity-100' : 'opacity-50'
-              }`}
+              className={cn(`retro text-center text-base min-h-[2rem] break-all transition-all duration-300`, {
+                "opacity-100": displayExpression,
+                "opacity-50": !displayExpression,
+                "pt-6": !displayExpression
+              })}
               initial={{ opacity: 0.5 }}
               animate={{ opacity: displayExpression ? 1 : 0.5 }}
             >
