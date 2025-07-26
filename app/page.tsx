@@ -87,8 +87,8 @@ export default function Home() {
       <div className="w-full max-w-md mx-auto min-h-screen bg-gray-200">
         <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-6 pb-20 gap-8">
           <main className="flex flex-col gap-6 row-start-2 items-center w-full">
-            <h2 className="retro text-xl">Run Block</h2>
-            <Card>
+            <h2 className="retro text-xl">Num Craze</h2>
+            <Card className='bg-gradient-to-br from-gray-300 to-gray-50'>
               <CardHeader>
                 <CardTitle>Create Account</CardTitle>
                 <CardDescription>

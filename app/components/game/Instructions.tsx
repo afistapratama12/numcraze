@@ -14,7 +14,7 @@ export default function Instructions({ onStartGame }: InstructionsProps) {
 
   const instructions = [
     {
-      title: "Welcome to Run Block!",
+      title: "Welcome to Num Craze!",
       content: "A math puzzle game where you need to reach the target number using the given numbers and operations."
     },
     {
@@ -57,7 +57,7 @@ export default function Instructions({ onStartGame }: InstructionsProps) {
 
   return (
     <div className="space-y-4">
-      <h2 className="retro text-xl text-center">Run Block</h2>
+      <h2 className="retro text-xl text-center">Num Craze</h2>
       
       <Card>
         <CardHeader>
