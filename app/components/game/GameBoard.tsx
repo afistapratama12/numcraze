@@ -390,7 +390,7 @@ export default function GameBoard({ targetNumber, timeLeft, onGameComplete, leve
 
   return (
     <div className="space-y-4">
-      <h2 className="retro text-xl text-center">Run Block</h2>
+      <h2 className="retro text-xl text-center">Num Craze</h2>
       
       {/* Give Up Button */}
       <div className="flex justify-center">
@@ -458,9 +458,10 @@ export default function GameBoard({ targetNumber, timeLeft, onGameComplete, leve
       >
         <Card>
           <CardHeader>
-            <CardTitle className="text-center text-2xl">{targetNumber}</CardTitle>
+            <CardTitle className={cn("text-center text-2xl", {
+            })}>{targetNumber}</CardTitle>
           </CardHeader>
-          <CardContent className="px-4 py-2 w-full h-[16vh]">
+          <CardContent className="px-4 py-2 w-full h-[14vh]">
             <motion.div 
               className={cn(`retro text-center text-base min-h-[2rem] break-all transition-all duration-300`, {
                 "opacity-100": displayExpression,

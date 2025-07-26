@@ -48,9 +48,9 @@ export default function Leaderboard({
 
       currentLeaderboard.push(newEntry);
       
-      // Sort by level (descending) and keep top 10
+      // Sort by level (descending) and keep top 15
       currentLeaderboard.sort((a, b) => b.level - a.level);
-      currentLeaderboard = currentLeaderboard.slice(0, 10);
+      currentLeaderboard = currentLeaderboard.slice(0, 15);
 
       // Save back to localStorage
       localStorage.setItem('runblock_leaderboard', JSON.stringify(currentLeaderboard));
@@ -68,7 +68,7 @@ export default function Leaderboard({
 
   const getStatusMessage = () => {
     if (playerLevel === 999) {
-      return "🎉 CONGRATULATIONS! YOU'VE MASTERED RUN BLOCK! 🎉";
+      return "🎉 CONGRATULATIONS! YOU'VE MASTERED NUM CRAZE! 🎉";
     }
     return `Game Over! You reached level ${playerLevel}`;
   };
@@ -109,12 +109,15 @@ export default function Leaderboard({
       }
     });
     
-    return playerRank >= 0 ? playerRank + 1 : leaderboard.length + 1;
+    const rank = playerRank >= 0 ? playerRank + 1 : leaderboard.length + 1;
+    
+    // If rank is 15 or higher, show "14 >"
+    return rank >= 15 ? "14 >" : rank;
   };
 
   return (
     <div className="space-y-4">
-      <h2 className="retro text-xl text-center">Run Block</h2>
+      <h2 className="retro text-xl text-center">Num Craze</h2>
       
       {/* Game Result */}
       <Card>
@@ -137,7 +140,7 @@ export default function Leaderboard({
           <CardTitle className="text-center">🏆 Leaderboard</CardTitle>
         </CardHeader>
         <CardContent className="p-4">
-          <div className="space-y-2">
+          <div className="space-y-2 max-h-80 overflow-y-auto">
             {leaderboard.map((entry, index) => (
               <div 
                 key={`${entry.username}-${entry.timestamp}`}
@@ -148,7 +151,9 @@ export default function Leaderboard({
                 }`}
               >
                 <div className="flex items-center space-x-2">
-                  <span className="retro text-sm font-bold">#{index + 1}</span>
+                  <span className="retro text-sm font-bold">
+                    #{index === 14 && leaderboard.length === 15 ? '14 >' : index + 1}
+                  </span>
                   <div>
                     <div className="retro text-sm">{entry.username.includes("@") ? entry.username : `@${entry.username}`}</div>
                   </div>

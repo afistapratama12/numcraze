@@ -20,7 +20,7 @@ export default function LevelComplete({ level, onContinue }: LevelCompleteProps)
 
   return (
     <div className="space-y-4">
-      <h2 className="retro text-xl text-center">Run Block</h2>
+      <h2 className="retro text-xl text-center">Num Craze</h2>
       
       <Card className="animate-pulse">
         <CardHeader>
